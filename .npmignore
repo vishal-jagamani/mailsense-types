@@ -1,0 +1,14 @@
+# Source files (only publish compiled dist)
+src/
+.github/
+.vscode/
+
+# Config files
+tsconfig.json
+tsup.config.ts
+.eslintrc*
+.prettierrc*
+
+# Logs & temp files
+*.log
+.DS_Store
