@@ -1,0 +1,85 @@
+{
+    "name": "@mailsense/types",
+    "version": "1.0.0",
+    "description": "Official TypeScript constants, enums, interfaces, and DTO definitions for MailSense services",
+    "type": "module",
+    "private": false,
+    "main": "./dist/index.cjs",
+    "module": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "files": [
+        "dist"
+    ],
+    "publishConfig": {
+        "access": "public"
+    },
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "import": "./dist/index.js",
+            "require": "./dist/index.cjs"
+        },
+        "./common": {
+            "types": "./dist/common/index.d.ts",
+            "import": "./dist/common/index.js",
+            "require": "./dist/common/index.cjs"
+        },
+        "./accounts": {
+            "types": "./dist/accounts/index.d.ts",
+            "import": "./dist/accounts/index.js",
+            "require": "./dist/accounts/index.cjs"
+        },
+        "./emails": {
+            "types": "./dist/emails/index.d.ts",
+            "import": "./dist/emails/index.js",
+            "require": "./dist/emails/index.cjs"
+        },
+        "./folders": {
+            "types": "./dist/folders/index.d.ts",
+            "import": "./dist/folders/index.js",
+            "require": "./dist/folders/index.cjs"
+        },
+        "./user": {
+            "types": "./dist/user/index.d.ts",
+            "import": "./dist/user/index.js",
+            "require": "./dist/user/index.cjs"
+        },
+        "./providers": {
+            "types": "./dist/providers/index.d.ts",
+            "import": "./dist/providers/index.js",
+            "require": "./dist/providers/index.cjs"
+        },
+        "./events": {
+            "types": "./dist/events/index.d.ts",
+            "import": "./dist/events/index.js",
+            "require": "./dist/events/index.cjs"
+        },
+        "./workers": {
+            "types": "./dist/workers/index.d.ts",
+            "import": "./dist/workers/index.js",
+            "require": "./dist/workers/index.cjs"
+        }
+    },
+    "scripts": {
+        "build": "tsup",
+        "dev": "tsup --watch",
+        "type-check": "tsc --noEmit",
+        "lint": "eslint src",
+        "prepublishOnly": "npm run build"
+    },
+    "keywords": [
+        "mailsense",
+        "typescript",
+        "types",
+        "enums",
+        "interfaces",
+        "email"
+    ],
+    "author": "Vishal Jagamani",
+    "license": "MIT",
+    "devDependencies": {
+        "prettier": "^3.9.6",
+        "tsup": "^8.5.1",
+        "typescript": "^5.9.3"
+    }
+}
