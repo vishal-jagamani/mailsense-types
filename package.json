@@ -1,6 +1,6 @@
 {
     "name": "@mailsense/types",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "description": "Official TypeScript constants, enums, interfaces, and DTO definitions for MailSense services",
     "type": "module",
     "private": false,
