@@ -7,6 +7,26 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ## [Unreleased]
 
+## [1.1.0] - 2026-07-26
+
+### Added
+
+- Shared account contracts for Gmail and Outlook connections, account metrics, OAuth callbacks, sync-job lifecycle, provider metadata, and default synchronization settings.
+- Shared email entity, list, search, filtering, compose, contact-suggestion, and filter-response contracts.
+- Shared folder entity, query, creation, kind, and system-role contracts.
+- Gmail and Outlook OAuth, profile, message, label, folder, history, and contact API contracts, plus provider-neutral sync, authentication, profile, and send-result types.
+- Shared user profile, account-status, password-update, and profile-settings contracts.
+- Shared background-sync worker result contracts and typed system-event names and payloads.
+- Dedicated public subpath exports for `accounts`, `emails`, `folders`, `user`, `providers`, `events`, and `workers`; all are also available from the root package export.
+
+### Changed
+
+- Expanded the root `@mailsense/types` entry point to re-export every domain contract module.
+
+### Removed
+
+- Removed the unused `PaginationQueryParams`, `EntityId`, and `Nullable<T>` aliases from the common contract surface.
+
 ## [1.0.0] - 2026-07-26
 
 ### Added
@@ -18,5 +38,6 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 - `DATE_RANGE` and `FILTER_OPTION_TYPE` enums for consistent filtering behavior across MailSense applications.
 - ESM, CommonJS, and TypeScript declaration build outputs, with public `@mailsense/types` and `@mailsense/types/common` entry points.
 
-[Unreleased]: https://github.com/vishal-jagamani/mailsense-types/compare/v1.0.0...HEAD
+[Unreleased]: https://github.com/vishal-jagamani/mailsense-types/compare/v1.1.0...HEAD
+[1.1.0]: https://github.com/vishal-jagamani/mailsense-types/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/vishal-jagamani/mailsense-types/releases/tag/v1.0.0
