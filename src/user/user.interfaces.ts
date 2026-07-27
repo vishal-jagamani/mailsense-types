@@ -28,11 +28,6 @@ export interface UserDetailsObject {
     logins_count: number;
 }
 
-// Response interface for update password endpoint
-export interface UpdatePasswordResponseObject {
-    message: string;
-}
-
 // User profile settings data structure
 export interface ProfileSettingsDataObject {
     nickname: string;

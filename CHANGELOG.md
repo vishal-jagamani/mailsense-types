@@ -7,6 +7,15 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ## [Unreleased]
 
+### Changed
+
+- Typed account profile details as the shared Gmail-or-Outlook provider profile union.
+- Tightened provider sync results and email-created event payloads to use email identifier strings instead of unstructured objects.
+
+### Removed
+
+- Removed the unused `UpdatePasswordResponseObject` user contract.
+
 ## [1.1.0] - 2026-07-26
 
 ### Added

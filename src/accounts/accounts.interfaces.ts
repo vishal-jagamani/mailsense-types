@@ -1,3 +1,4 @@
+import { IEmailTUserProfile } from '../providers/provider.interfaces.js';
 import { ACCOUNT_LAST_SYNC_STATUS, ACCOUNT_PROVIDER, ACCOUNT_SYNC_JOB_STATUS, ACCOUNT_SYNC_JOB_TRIGGER_TYPE } from './accounts.enums.js';
 
 // Display metadata for connected account providers
@@ -12,7 +13,7 @@ export interface AccountAttributes {
     userId: string;
     provider: ACCOUNT_PROVIDER;
     emailAddress: string;
-    userProfileDetails: Record<string, unknown>;
+    userProfileDetails: IEmailTUserProfile;
     accessToken: string;
     refreshToken: string;
     accessTokenExpiry: number;

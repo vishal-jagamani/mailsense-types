@@ -12,7 +12,7 @@ export interface SyncCompletedPayload {
 // Payload for EMAIL_CREATED system event
 export interface EmailCreatedPayload {
     accountId: string;
-    email: Record<string, unknown>;
+    email: string;
 }
 
 // Registry interface mapping system events to their payload types
