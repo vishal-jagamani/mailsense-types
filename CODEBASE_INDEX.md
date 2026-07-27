@@ -42,23 +42,23 @@ Every module below is available from the root `@mailsense/types` import and thro
 
 - `common.constants.ts`: `DEFAULT_PAGE_SIZE` (`20`), `DEFAULT_PAGE` (`1`), and `MAX_PAGE_SIZE` (`100`).
 - `common.enums.ts`: `DATE_RANGE` and `FILTER_OPTION_TYPE`.
-- `common.interfaces.ts`: `APIResponse<T>`, `PaginatedDataResponse<T>`, mutation/success responses, and shared filtering contracts (`Filter`, `FilterOption`, `FilterOptionData`).
+- `common.interfaces.ts`: `BaseEntity`, `CreateEntityInput<T>`, API/pagination/mutation response envelopes, and shared filtering contracts (`Filter`, `FilterOption`, `FilterOptionData`).
 
 ### Accounts (`src/accounts`)
 
 - `accounts.enums.ts`: Gmail/Outlook provider IDs; account-last-sync, sync-job, and sync-trigger statuses.
 - `accounts.constants.ts`: fifteen-minute default sync interval and supported provider display metadata.
-- `accounts.interfaces.ts`: account (including a provider-typed user profile), account metrics, queued sync-job, account-list response, and OAuth callback contracts.
+- `accounts.interfaces.ts`: base-entity account (including a provider-typed user profile), account metrics, queued sync-job, account-list response, and OAuth callback contracts.
 
 ### Emails (`src/emails`)
 
 - `emails.enums.ts`: ascending and descending email-search sort order.
-- `emails.interfaces.ts`: full email and list DTOs; fetch/search/filter parameters; compose and recipient-search payloads; list and filter responses.
+- `emails.interfaces.ts`: base-entity full email and list DTOs; fetch/search/filter parameters; compose and recipient-search payloads; list and filter responses.
 
 ### Folders (`src/folders`)
 
 - `folders.enums.ts`: system/custom folder kinds and standard folder roles such as inbox, sent, drafts, trash, spam, archive, starred, and important.
-- `folders.interfaces.ts`: folder attributes, list filters and request options, and create-folder payload.
+- `folders.interfaces.ts`: base-entity folder attributes, list filters and request options, and create-folder payload.
 
 ### Providers (`src/providers`)
 
@@ -76,7 +76,7 @@ Every module below is available from the root `@mailsense/types` import and thro
 ### Events and Workers
 
 - `events/events.enums.ts`: `SYNC_COMPLETED` and `EMAIL_CREATED` system event names.
-- `events/events.interfaces.ts`: sync-completed and email-created payloads (with an email ID), plus the event-to-payload registry.
+- `events/events.interfaces.ts`: sync-completed and email-created payloads (with a partial typed email), plus the event-to-payload registry.
 - `workers/workers.interfaces.ts`: `SyncJobResult` with added and deleted email counts.
 
 ## Build and Publishing

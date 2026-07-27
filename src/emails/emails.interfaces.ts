@@ -1,8 +1,7 @@
-import { DATE_RANGE, Filter } from '../common/index.js';
+import { BaseEntity, DATE_RANGE, Filter } from '../common/index.js';
 
 // Full Email entity interface shared between frontend and backend
-export interface EmailAttributes {
-    _id: string;
+export interface EmailAttributes extends BaseEntity {
     accountId: string;
     providerMessageId: string;
     threadId: string;
@@ -20,8 +19,7 @@ export interface EmailAttributes {
 }
 
 // Lightweight Email summary DTO for list views
-export interface EmailListDTO {
-    _id: string;
+export interface EmailListDTO extends BaseEntity {
     subject?: string | undefined;
     from?: string | undefined;
     receivedAt?: Date | undefined;

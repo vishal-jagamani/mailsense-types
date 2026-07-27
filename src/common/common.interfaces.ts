@@ -1,5 +1,15 @@
 import { DATE_RANGE, FILTER_OPTION_TYPE } from './common.enums.js';
 
+// Base entity interface for database models and domain entities
+export interface BaseEntity {
+    _id: string;
+    createdAt?: Date | string;
+    updatedAt?: Date | string;
+}
+
+// Utility type for constructing creation inputs (omits DB-generated metadata)
+export type CreateEntityInput<T> = Omit<T, '_id' | 'createdAt' | 'updatedAt'>;
+
 // API Types
 // Generic API response wrapper for payload object `T`
 export interface APIResponse<T> {

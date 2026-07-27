@@ -1,9 +1,8 @@
-import { DATE_RANGE, Filter } from '../common/index.js';
+import { BaseEntity, DATE_RANGE, Filter } from '../common/index.js';
 import { FOLDER_KIND, FOLDER_ROLE } from './folders.enums.js';
 
 // Folder entity attributes definition
-export interface FolderAttributes {
-    _id: string | undefined;
+export interface FolderAttributes extends BaseEntity {
     userId: string;
     accountId: string;
 

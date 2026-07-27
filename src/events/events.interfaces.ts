@@ -1,3 +1,4 @@
+import { EmailAttributes } from '../emails/emails.interfaces.js';
 import { SYSTEM_EVENT } from './events.enums.js';
 
 // Payload for SYNC_COMPLETED system event
@@ -12,7 +13,7 @@ export interface SyncCompletedPayload {
 // Payload for EMAIL_CREATED system event
 export interface EmailCreatedPayload {
     accountId: string;
-    email: string;
+    email: Partial<EmailAttributes>;
 }
 
 // Registry interface mapping system events to their payload types

@@ -7,6 +7,19 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ## [Unreleased]
 
+## [1.1.3] - 2026-07-27
+
+### Added
+
+- Added `BaseEntity` for shared database entity metadata and `CreateEntityInput<T>` for creation payloads that omit generated fields.
+
+### Changed
+
+- Updated account, account-metrics, sync-job, email, email-list, and folder contracts to inherit shared entity metadata.
+- Updated the email-created event payload to carry a partial typed email object.
+
+## [1.1.2] - 2026-07-27
+
 ### Changed
 
 - Typed account profile details as the shared Gmail-or-Outlook provider profile union.
