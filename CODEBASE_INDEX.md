@@ -48,7 +48,7 @@ Every module below is available from the root `@mailsense/types` import and thro
 
 - `accounts.enums.ts`: Gmail/Outlook provider IDs; account-last-sync, sync-job, and sync-trigger statuses.
 - `accounts.constants.ts`: fifteen-minute default sync interval and supported provider display metadata.
-- `accounts.interfaces.ts`: account, account metrics, queued sync-job, account-list response, and OAuth callback contracts.
+- `accounts.interfaces.ts`: account (including a provider-typed user profile), account metrics, queued sync-job, account-list response, and OAuth callback contracts.
 
 ### Emails (`src/emails`)
 
@@ -66,17 +66,17 @@ Every module below is available from the root `@mailsense/types` import and thro
 - `gmail.interfaces.ts`: OAuth, profile, message, history, label, and Google People contact API models.
 - `outlook.enums.ts`: Microsoft Graph well-known folders and delta message change reasons.
 - `outlook.interfaces.ts`: OAuth, profile, message, recipient, and paginated/delta response models.
-- `provider.interfaces.ts`: provider-neutral email sync result and Gmail/Outlook OAuth, profile, and send-result unions.
+- `provider.interfaces.ts`: provider-neutral email sync result with added/deleted email IDs, plus Gmail/Outlook OAuth, profile, and send-result unions.
 
 ### User (`src/user`)
 
 - `user.enums.ts`: active, inactive, and suspended account statuses.
-- `user.interfaces.ts`: user identity, Auth0 user details, profile settings, password-update, and profile-update response contracts.
+- `user.interfaces.ts`: user identity, Auth0 user details, profile settings, and profile-update response contracts.
 
 ### Events and Workers
 
 - `events/events.enums.ts`: `SYNC_COMPLETED` and `EMAIL_CREATED` system event names.
-- `events/events.interfaces.ts`: sync-completed and email-created payloads plus the event-to-payload registry.
+- `events/events.interfaces.ts`: sync-completed and email-created payloads (with an email ID), plus the event-to-payload registry.
 - `workers/workers.interfaces.ts`: `SyncJobResult` with added and deleted email counts.
 
 ## Build and Publishing

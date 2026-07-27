@@ -3,7 +3,7 @@ import { OutlookMessageObjectFull, OutlookOAuthAccessTokenResponse, OutlookUserP
 
 // Standard sync result payload returned from provider sync adapters
 export interface EmailSyncResult {
-    addedEmails: Record<string, unknown>[];
+    addedEmails: string[];
     deletedEmailIds: string[];
     newCursor: string;
 }
