@@ -1,3 +1,4 @@
+import { BaseEntity } from '../common/index.js';
 import { IEmailTUserProfile } from '../providers/provider.interfaces.js';
 import { ACCOUNT_LAST_SYNC_STATUS, ACCOUNT_PROVIDER, ACCOUNT_SYNC_JOB_STATUS, ACCOUNT_SYNC_JOB_TRIGGER_TYPE } from './accounts.enums.js';
 
@@ -9,7 +10,7 @@ export interface AccountProviderType {
 }
 
 // Main Account entity model and DTO representation
-export interface AccountAttributes {
+export interface AccountAttributes extends BaseEntity {
     userId: string;
     provider: ACCOUNT_PROVIDER;
     emailAddress: string;
@@ -32,7 +33,7 @@ export interface AccountAttributes {
 }
 
 // Metrics and counters tracked for an account
-export interface AccountMetricsAttributes {
+export interface AccountMetricsAttributes extends BaseEntity {
     accountId: string;
     totalEmails: number;
     totalThreads: number;
@@ -43,7 +44,7 @@ export interface AccountMetricsAttributes {
 }
 
 // Execution record for queued background account sync jobs
-export interface SyncJobAttributes {
+export interface SyncJobAttributes extends BaseEntity {
     accountId: string;
     bullJobId: string;
     status: ACCOUNT_SYNC_JOB_STATUS;
