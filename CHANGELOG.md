@@ -7,6 +7,8 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ## [Unreleased]
 
+## [1.1.2] - 2026-07-27
+
 ### Changed
 
 - Typed account profile details as the shared Gmail-or-Outlook provider profile union.
