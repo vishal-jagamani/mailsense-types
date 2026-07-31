@@ -7,6 +7,17 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ## [Unreleased]
 
+## [1.1.4] - 2026-07-31
+
+### Added
+
+- Added user account-sync settings contracts for global synchronization controls, shared intervals, and per-account customization.
+- Added `ACCOUNT_SYNC_MODE` to distinguish a single sync policy from custom per-account settings.
+
+### Changed
+
+- Simplified folder attributes by relying on `BaseEntity` for creation and update timestamps.
+
 ## [1.1.3] - 2026-07-27
 
 ### Added
@@ -60,6 +71,9 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 - `DATE_RANGE` and `FILTER_OPTION_TYPE` enums for consistent filtering behavior across MailSense applications.
 - ESM, CommonJS, and TypeScript declaration build outputs, with public `@mailsense/types` and `@mailsense/types/common` entry points.
 
-[Unreleased]: https://github.com/vishal-jagamani/mailsense-types/compare/v1.1.0...HEAD
+[Unreleased]: https://github.com/vishal-jagamani/mailsense-types/compare/v1.1.4...HEAD
+[1.1.4]: https://github.com/vishal-jagamani/mailsense-types/compare/v1.1.3...v1.1.4
+[1.1.3]: https://github.com/vishal-jagamani/mailsense-types/compare/v1.1.2...v1.1.3
+[1.1.2]: https://github.com/vishal-jagamani/mailsense-types/compare/v1.1.1...v1.1.2
 [1.1.0]: https://github.com/vishal-jagamani/mailsense-types/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/vishal-jagamani/mailsense-types/releases/tag/v1.0.0
