@@ -29,9 +29,6 @@ export interface FolderAttributes extends BaseEntity {
 
     lastSyncedAt: Date;
     providerMeta?: Record<string, unknown> | undefined;
-
-    createdAt?: Date | undefined;
-    updatedAt?: Date | undefined;
 }
 
 // Request options for folder listing

@@ -12,7 +12,7 @@
 - `src/emails/`: email entities, list/search/compose request and response contracts.
 - `src/folders/`: folder entities, filters, creation requests, and folder enums.
 - `src/providers/`: Gmail and Outlook provider API contracts plus provider-neutral types.
-- `src/user/`: user profile, settings, status, and password-update contracts.
+- `src/user/`: user profile, account-sync settings, and status contracts.
 - `src/events/`: internal system event names and typed event payloads.
 - `src/workers/`: background sync worker result contracts.
 - `tsup.config.ts`: ESM/CommonJS bundles, declaration files, source maps, and clean builds.
@@ -31,7 +31,7 @@ Every module below is available from the root `@mailsense/types` import and thro
 | `@mailsense/types/accounts` | `src/accounts/index.ts` | Account/provider metadata, sync settings, account metrics, and sync jobs. |
 | `@mailsense/types/emails` | `src/emails/index.ts` | Email entities, query/filter, compose, and list contracts. |
 | `@mailsense/types/folders` | `src/folders/index.ts` | Folder entities, filters, create request, roles, and kinds. |
-| `@mailsense/types/user` | `src/user/index.ts` | User, profile settings, password-update, and status contracts. |
+| `@mailsense/types/user` | `src/user/index.ts` | User identity, profile, account-sync settings, and status contracts. |
 | `@mailsense/types/providers` | `src/providers/index.ts` | Gmail and Outlook API models plus provider-neutral result types. |
 | `@mailsense/types/events` | `src/events/index.ts` | System event names and typed payload registry. |
 | `@mailsense/types/workers` | `src/workers/index.ts` | Background sync worker result contracts. |
@@ -58,7 +58,7 @@ Every module below is available from the root `@mailsense/types` import and thro
 ### Folders (`src/folders`)
 
 - `folders.enums.ts`: system/custom folder kinds and standard folder roles such as inbox, sent, drafts, trash, spam, archive, starred, and important.
-- `folders.interfaces.ts`: base-entity folder attributes, list filters and request options, and create-folder payload.
+- `folders.interfaces.ts`: base-entity folder attributes (including inherited timestamps), list filters and request options, and create-folder payload.
 
 ### Providers (`src/providers`)
 
@@ -70,8 +70,8 @@ Every module below is available from the root `@mailsense/types` import and thro
 
 ### User (`src/user`)
 
-- `user.enums.ts`: active, inactive, and suspended account statuses.
-- `user.interfaces.ts`: user identity, Auth0 user details, profile settings, and profile-update response contracts.
+- `user.enums.ts`: active, inactive, and suspended account statuses, plus shared or custom-per-account synchronization modes.
+- `user.interfaces.ts`: user identity, Auth0 user details, profile settings, profile-update response, and base-entity user account-sync settings contracts.
 
 ### Events and Workers
 
@@ -90,5 +90,5 @@ Every module below is available from the root `@mailsense/types` import and thro
 
 ## Release Documentation
 
-- `CHANGELOG.md`: user-facing release history; version `1.1.0` documents the current domain-contract expansion.
+- `CHANGELOG.md`: user-facing release history; version `1.1.4` documents the latest published contract updates.
 - `CODEBASE_INDEX.md`: current source and public-surface reference. Update it whenever a public module, contract, export, or build/publishing behavior changes.

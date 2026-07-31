@@ -1,3 +1,23 @@
+import { BaseEntity } from '../common/common.interfaces.js';
+import { ACCOUNT_SYNC_MODE } from './user.enums.js';
+
+export interface UserAccountSyncSettings {
+    globalAutoSync: boolean;
+    syncMode: ACCOUNT_SYNC_MODE;
+    globalSyncInterval: number;
+    defaultSyncInterval: number;
+}
+
+export interface UserAccountSettings {
+    syncSettings: UserAccountSyncSettings;
+    // Future additions: defaultAccountId?, signature?, etc.
+}
+
+export interface UserSettings extends BaseEntity {
+    userId: string;
+    account: UserAccountSettings;
+}
+
 // User entity representation
 export interface User {
     id: string;
