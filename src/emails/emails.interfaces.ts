@@ -1,10 +1,11 @@
 import { BaseEntity, DATE_RANGE, Filter } from '../common/index.js';
 
-// Full Email entity interface shared between frontend and backend
+// DB entities
 export interface EmailAttributes extends BaseEntity {
     accountId: string;
     providerMessageId: string;
     threadId: string;
+    threadCount?: number;
     from: string;
     to: string[] | string;
     cc: string[] | string;
@@ -16,6 +17,16 @@ export interface EmailAttributes extends BaseEntity {
     receivedAt: Date;
     isRead: boolean;
     folders: string[];
+    attachments?: EmailAttachment[];
+}
+
+export interface EmailAttachment {
+    attachmentId: string;
+    filename: string;
+    mimeType: string;
+    size: number;
+    contentId?: string;
+    isInline: boolean;
 }
 
 // Lightweight Email summary DTO for list views
@@ -24,6 +35,11 @@ export interface EmailListDTO extends BaseEntity {
     from?: string | undefined;
     receivedAt?: Date | undefined;
     isRead?: boolean | undefined;
+    providerMessageId?: string | undefined;
+    accountId?: string | undefined;
+    threadId?: string | undefined;
+    threadCount?: number | undefined;
+    attachmentCount?: number | undefined;
     body?: string | undefined;
     bodyHtml?: string | undefined;
     bodyPlain?: string | undefined;
@@ -80,4 +96,21 @@ export interface GetEmailsResponse {
     size: number;
     page: number;
     total: number;
+}
+
+// Response envelope for email threads endpoints
+export interface GetThreadResponse {
+    thread: EmailAttributes[];
+    threadId: string;
+}
+
+export interface MoveEmailsRequestBody {
+    emailIds: string[];
+    targetFolderIds: string[];
+    removeFolderIds?: string[];
+}
+
+export interface MoveEmailsResponse {
+    success: boolean;
+    updatedCount: number;
 }

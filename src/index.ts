@@ -1,5 +1,6 @@
 export * from './accounts/index.js';
 export * from './common/index.js';
+export * from './drafts/index.js';
 export * from './emails/index.js';
 export * from './events/index.js';
 export * from './folders/index.js';

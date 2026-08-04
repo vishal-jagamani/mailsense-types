@@ -7,6 +7,19 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ## [Unreleased]
 
+## [1.2.0] - 2026-08-04
+
+### Added
+
+- Added `GetThreadResponse` contract and `threadId`, `threadCount` properties to `EmailAttributes` and `EmailListDTO` for email thread grouping (Phase 1).
+- Added `EmailAttachment` interface, `attachments` field to `EmailAttributes`, and `attachmentCount` to `EmailListDTO` for stream attachment handling (Phase 2).
+- Added `MoveEmailsRequestBody` and `MoveEmailsResponse` contracts for folder/label relocation operations (Phase 3).
+- Added `EMAIL_STATUS` enum and dedicated `drafts` module containing `DraftAttributes`, `SaveDraftRequestBody`, `SendDraftResponse`, and `DraftListDTO` contracts (Phase 4).
+
+### Changed
+
+- Updated `ComposeEmailRequestBody` to support optional `cc`, `bcc`, and `inReplyTo` parameters.
+
 ## [1.1.4] - 2026-07-31
 
 ### Added
