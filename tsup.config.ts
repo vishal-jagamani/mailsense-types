@@ -11,6 +11,7 @@ export default defineConfig({
         'src/providers/index.ts',
         'src/events/index.ts',
         'src/workers/index.ts',
+        'src/drafts/index.ts',
     ],
     format: ['cjs', 'esm'],
     dts: true,

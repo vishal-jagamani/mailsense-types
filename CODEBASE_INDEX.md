@@ -2,14 +2,15 @@
 
 ## Purpose
 
-`@mailsense/types` is the shared, zero-runtime-dependency TypeScript contract package for MailSense applications. It provides common API shapes plus domain contracts for accounts, email, folders, users, providers, background workers, and internal events.
+`@mailsense/types` is the shared, zero-runtime-dependency TypeScript contract package for MailSense applications. It provides common API shapes plus domain contracts for accounts, email, drafts, folders, users, providers, background workers, and internal events.
 
 ## Repository Shape
 
 - `src/index.ts`: root entry point that re-exports every domain module.
 - `src/common/`: cross-domain constants, enums, interfaces, and the `common` barrel export.
 - `src/accounts/`: connected-account, provider, metrics, and sync-job contracts.
-- `src/emails/`: email entities, list/search/compose request and response contracts.
+- `src/emails/`: email entities, list/search/compose request and response contracts, thread, attachment, and folder movement types.
+- `src/drafts/`: draft entity, auto-save payload, send response, and list DTO contracts.
 - `src/folders/`: folder entities, filters, creation requests, and folder enums.
 - `src/providers/`: Gmail and Outlook provider API contracts plus provider-neutral types.
 - `src/user/`: user profile, account-sync settings, and status contracts.
@@ -29,7 +30,8 @@ Every module below is available from the root `@mailsense/types` import and thro
 | `@mailsense/types` | `src/index.ts` | All public package contracts. |
 | `@mailsense/types/common` | `src/common/index.ts` | Shared pagination, API response, filter, and filter-control contracts. |
 | `@mailsense/types/accounts` | `src/accounts/index.ts` | Account/provider metadata, sync settings, account metrics, and sync jobs. |
-| `@mailsense/types/emails` | `src/emails/index.ts` | Email entities, query/filter, compose, and list contracts. |
+| `@mailsense/types/emails` | `src/emails/index.ts` | Email entities, query/filter, compose, attachment metadata, thread, and folder movement contracts. |
+| `@mailsense/types/drafts` | `src/drafts/index.ts` | Draft entity, auto-save payload, send response, and list DTO contracts. |
 | `@mailsense/types/folders` | `src/folders/index.ts` | Folder entities, filters, create request, roles, and kinds. |
 | `@mailsense/types/user` | `src/user/index.ts` | User identity, profile, account-sync settings, and status contracts. |
 | `@mailsense/types/providers` | `src/providers/index.ts` | Gmail and Outlook API models plus provider-neutral result types. |
@@ -52,8 +54,12 @@ Every module below is available from the root `@mailsense/types` import and thro
 
 ### Emails (`src/emails`)
 
-- `emails.enums.ts`: ascending and descending email-search sort order.
-- `emails.interfaces.ts`: base-entity full email and list DTOs; fetch/search/filter parameters; compose and recipient-search payloads; list and filter responses.
+- `emails.enums.ts`: `EMAIL_STATUS` (`received`, `draft`, `sent`), ascending and descending email-search sort order.
+- `emails.interfaces.ts`: base-entity full email (with `threadCount` and `attachments`) and list DTOs (with `attachmentCount` and thread metadata); thread retrieval (`GetThreadResponse`); attachment metadata (`EmailAttachment`); folder move payloads (`MoveEmailsRequestBody`, `MoveEmailsResponse`); fetch/search/filter parameters; compose and recipient-search payloads; list and filter responses.
+
+### Drafts (`src/drafts`)
+
+- `drafts.interfaces.ts`: `DraftAttributes` entity, `SaveDraftRequestBody` auto-save payload, `SendDraftResponse` dispatch payload, and `DraftListDTO` summary contracts.
 
 ### Folders (`src/folders`)
 
@@ -90,5 +96,5 @@ Every module below is available from the root `@mailsense/types` import and thro
 
 ## Release Documentation
 
-- `CHANGELOG.md`: user-facing release history; version `1.1.4` documents the latest published contract updates.
+- `CHANGELOG.md`: user-facing release history; version `1.2.0` documents the latest published contract updates.
 - `CODEBASE_INDEX.md`: current source and public-surface reference. Update it whenever a public module, contract, export, or build/publishing behavior changes.
