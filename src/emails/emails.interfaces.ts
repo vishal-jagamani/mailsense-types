@@ -114,3 +114,12 @@ export interface MoveEmailsResponse {
     success: boolean;
     updatedCount: number;
 }
+
+export interface EmailAttachment {
+    attachmentId: string;
+    filename: string;
+    mimeType: string;
+    size: number;
+    contentId?: string;
+    isInline: boolean;
+}

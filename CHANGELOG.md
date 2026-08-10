@@ -7,6 +7,14 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ## [Unreleased]
 
+## [1.3.0] - 2026-08-10
+
+### Added
+
+- Added the `attachments` module with staged attachment, upload, deletion, and send-email request contracts.
+- Added Outlook attachment-resource and large-file upload-session response contracts.
+- Added the `@mailsense/types/attachments` package export and made attachment contracts available from the root package entry.
+
 ## [1.2.0] - 2026-08-04
 
 ### Added
@@ -84,7 +92,9 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 - `DATE_RANGE` and `FILTER_OPTION_TYPE` enums for consistent filtering behavior across MailSense applications.
 - ESM, CommonJS, and TypeScript declaration build outputs, with public `@mailsense/types` and `@mailsense/types/common` entry points.
 
-[Unreleased]: https://github.com/vishal-jagamani/mailsense-types/compare/v1.1.4...HEAD
+[Unreleased]: https://github.com/vishal-jagamani/mailsense-types/compare/v1.3.0...HEAD
+[1.3.0]: https://github.com/vishal-jagamani/mailsense-types/compare/v1.2.0...v1.3.0
+[1.2.0]: https://github.com/vishal-jagamani/mailsense-types/compare/v1.1.4...v1.2.0
 [1.1.4]: https://github.com/vishal-jagamani/mailsense-types/compare/v1.1.3...v1.1.4
 [1.1.3]: https://github.com/vishal-jagamani/mailsense-types/compare/v1.1.2...v1.1.3
 [1.1.2]: https://github.com/vishal-jagamani/mailsense-types/compare/v1.1.1...v1.1.2
