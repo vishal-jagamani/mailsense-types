@@ -77,9 +77,9 @@ Every module below is available from the root `@mailsense/types` import and thro
 ### Providers (`src/providers`)
 
 - `gmail.enums.ts`: Gmail system labels, label visibility, and label types.
-- `gmail.interfaces.ts`: OAuth, profile, message, history, label, and Google People contact API models.
+- `gmail.interfaces.ts`: OAuth, profile, recursive MIME message-part and attachment models, history, label, and Google People contact API models.
 - `outlook.enums.ts`: Microsoft Graph well-known folders and delta message change reasons.
-- `outlook.interfaces.ts`: OAuth, profile, message, recipient, paginated/delta response, attachment-resource, and upload-session models.
+- `outlook.interfaces.ts`: OAuth, profile, message and optional-recipient models, embedded attachment-resource, paginated/delta response, and upload-session models.
 - `provider.interfaces.ts`: provider-neutral email sync result with added/deleted email IDs, plus Gmail/Outlook OAuth, profile, and send-result unions.
 
 ### User (`src/user`)
@@ -104,5 +104,5 @@ Every module below is available from the root `@mailsense/types` import and thro
 
 ## Release Documentation
 
-- `CHANGELOG.md`: user-facing release history; version `1.3.0` documents the latest published contract updates.
+- `CHANGELOG.md`: user-facing release history; version `1.3.1` documents the latest published contract updates.
 - `CODEBASE_INDEX.md`: current source and public-surface reference. Update it whenever a public module, contract, export, or build/publishing behavior changes.

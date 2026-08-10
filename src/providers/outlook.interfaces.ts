@@ -42,7 +42,20 @@ export interface OutlookMessageObjectFull {
     from: { emailAddress: OutlookMessageEmailAddress };
     toRecipients: { emailAddress: OutlookMessageEmailAddress }[];
     ccRecipients: { emailAddress: OutlookMessageEmailAddress }[];
-    bccRecipients: { emailAddress: OutlookMessageEmailAddress }[];
+    bccRecipients?: { emailAddress: OutlookMessageEmailAddress }[];
+    attachments?: OutlookAttachmentObject[];
+}
+
+export interface OutlookAttachmentObject {
+    id: string;
+    '@odata.type'?: string;
+    '@odata.mediaContentType'?: string;
+    name: string;
+    contentType: string;
+    size: number;
+    isInline: boolean;
+    contentId?: string;
+    contentBytes?: string;
 }
 
 // Response wrapper for Microsoft Graph API messages query
@@ -51,18 +64,6 @@ export interface OutlookMessagesResponse {
     value: OutlookMessageObjectFull[];
     '@odata.nextLink'?: string;
     '@odata.deltaLink'?: string;
-}
-
-export interface OutlookAttachmentObject {
-    id?: string;
-    '@odata.type'?: string;
-    '@odata.mediaContentType'?: string;
-    name: string;
-    contentType: string;
-    size: number;
-    isInline: boolean;
-    contentId?: string | null;
-    contentBytes?: string;
 }
 
 export interface OutlookUploadSessionResponse {
