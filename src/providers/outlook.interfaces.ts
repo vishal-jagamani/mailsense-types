@@ -52,3 +52,22 @@ export interface OutlookMessagesResponse {
     '@odata.nextLink'?: string;
     '@odata.deltaLink'?: string;
 }
+
+export interface OutlookAttachmentObject {
+    id?: string;
+    '@odata.type'?: string;
+    '@odata.mediaContentType'?: string;
+    name: string;
+    contentType: string;
+    size: number;
+    isInline: boolean;
+    contentId?: string | null;
+    contentBytes?: string;
+}
+
+export interface OutlookUploadSessionResponse {
+    '@odata.context': string;
+    expirationDateTime: string;
+    nextExpectedRanges: string[];
+    uploadUrl: string;
+}
