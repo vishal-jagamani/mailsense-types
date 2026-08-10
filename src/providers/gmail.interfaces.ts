@@ -29,11 +29,12 @@ export interface GmailMessageHeaderFull {
 
 // Gmail API payload part structure
 export interface GmailMessagePartsFull {
-    partId: string;
-    mimeType: string;
-    filename: string;
-    headers: GmailMessageHeaderFull[];
-    body: { size: number; data: string };
+    partId?: string;
+    mimeType?: string;
+    filename?: string;
+    headers?: GmailMessageHeaderFull[];
+    body?: { size?: number; data?: string; attachmentId?: string };
+    parts?: GmailMessagePartsFull[];
 }
 
 // Full Gmail API message resource payload
@@ -42,14 +43,7 @@ export interface GmailMessageObjectFull {
     threadId: string;
     labelIds: string[];
     snippet: string;
-    payload: {
-        partId: string;
-        mimeType: string;
-        filename: string;
-        headers: GmailMessageHeaderFull[];
-        body: { size: number; data?: string };
-        parts: GmailMessagePartsFull[];
-    };
+    payload: GmailMessagePartsFull;
     sizeEstimate: number;
     historyId: string;
     internalDate: string;

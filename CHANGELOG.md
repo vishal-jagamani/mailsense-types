@@ -7,6 +7,13 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ## [Unreleased]
 
+## [1.3.1] - 2026-08-10
+
+### Changed
+
+- Updated Gmail message-part contracts to model optional and nested MIME parts, including attachment IDs in part bodies.
+- Updated Outlook message and attachment contracts to include message attachments, allow omitted BCC recipients, require attachment IDs, and normalize attachment content IDs.
+
 ## [1.3.0] - 2026-08-10
 
 ### Added
@@ -92,7 +99,8 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 - `DATE_RANGE` and `FILTER_OPTION_TYPE` enums for consistent filtering behavior across MailSense applications.
 - ESM, CommonJS, and TypeScript declaration build outputs, with public `@mailsense/types` and `@mailsense/types/common` entry points.
 
-[Unreleased]: https://github.com/vishal-jagamani/mailsense-types/compare/v1.3.0...HEAD
+[Unreleased]: https://github.com/vishal-jagamani/mailsense-types/compare/v1.3.1...HEAD
+[1.3.1]: https://github.com/vishal-jagamani/mailsense-types/compare/v1.3.0...v1.3.1
 [1.3.0]: https://github.com/vishal-jagamani/mailsense-types/compare/v1.2.0...v1.3.0
 [1.2.0]: https://github.com/vishal-jagamani/mailsense-types/compare/v1.1.4...v1.2.0
 [1.1.4]: https://github.com/vishal-jagamani/mailsense-types/compare/v1.1.3...v1.1.4
