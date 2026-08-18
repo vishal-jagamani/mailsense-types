@@ -63,7 +63,7 @@ Every module below is available from the root `@mailsense/types` import and thro
 ### Emails (`src/emails`)
 
 - `emails.enums.ts`: `EMAIL_STATUS` (`received`, `draft`, `sent`), ascending and descending email-search sort order.
-- `emails.interfaces.ts`: base-entity full email (with `threadCount` and `attachments`) and list DTOs (with `attachmentCount` and thread metadata); thread retrieval (`GetThreadResponse`); attachment metadata (`EmailAttachment`); folder move payloads (`MoveEmailsRequestBody`, `MoveEmailsResponse`); fetch/search/filter parameters; compose and recipient-search payloads; list and filter responses.
+- `emails.interfaces.ts`: base-entity full email (with `threadCount` and `attachments`) and list DTOs (with `attachmentCount` and thread metadata); thread retrieval (`GetThreadResponse`); attachment metadata (`EmailAttachment`); folder move payloads (`MoveEmailsRequestBody`, `MoveEmailsResponse`); fetch/search/filter parameters; compose (`ComposeEmailRequestBody` with `attachmentIds?: string[]`) and recipient-search payloads; list and filter responses.
 
 ### Drafts (`src/drafts`)
 
