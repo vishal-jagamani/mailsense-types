@@ -76,6 +76,7 @@ export interface ComposeEmailRequestBody {
     to: string[];
     subject: string;
     body: string;
+    attachmentIds?: string[];
 }
 
 // Recipient suggestion item returned from contact search
