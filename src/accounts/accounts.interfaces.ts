@@ -40,6 +40,8 @@ export interface AccountMetricsAttributes extends BaseEntity {
     totalLabels: number;
     totalFolders: number;
     totalContacts: number;
+    unreadCount?: number;
+    sentCount?: number;
     date: Date;
 }
 

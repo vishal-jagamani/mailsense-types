@@ -1,4 +1,5 @@
 export * from './accounts/index.js';
+export * from './analytics/index.js';
 export * from './attachments/index.js';
 export * from './common/index.js';
 export * from './drafts/index.js';

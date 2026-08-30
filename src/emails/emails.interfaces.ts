@@ -74,8 +74,12 @@ export interface GetAllEmailsFilters {
 export interface ComposeEmailRequestBody {
     accountId: string;
     to: string[];
+    cc?: string[];
+    bcc?: string[];
     subject: string;
     body: string;
+    inReplyTo?: string;
+    attachmentIds?: string[];
 }
 
 // Recipient suggestion item returned from contact search
