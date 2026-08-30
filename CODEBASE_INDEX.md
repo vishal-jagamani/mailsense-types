@@ -2,13 +2,14 @@
 
 ## Purpose
 
-`@mailsense/types` is the shared, zero-runtime-dependency TypeScript contract package for MailSense applications. It provides common API shapes plus domain contracts for accounts, attachments, email, drafts, folders, users, providers, background workers, and internal events.
+`@mailsense/types` is the shared, zero-runtime-dependency TypeScript contract package for MailSense applications. It provides common API shapes plus domain contracts for accounts, analytics, attachments, email, drafts, folders, users, providers, background workers, and internal events.
 
 ## Repository Shape
 
 - `src/index.ts`: root entry point that re-exports every domain module.
 - `src/common/`: cross-domain constants, enums, interfaces, and the `common` barrel export.
 - `src/accounts/`: connected-account, provider, metrics, and sync-job contracts.
+- `src/analytics/`: dashboard analytics, volume trends, top senders, response time metrics, and query contracts.
 - `src/attachments/`: staged attachment, upload, deletion, and send-email request contracts.
 - `src/emails/`: email entities, list/search/compose request and response contracts, thread, attachment, and folder movement types.
 - `src/drafts/`: draft entity, auto-save payload, send response, and list DTO contracts.
@@ -31,6 +32,7 @@ Every module below is available from the root `@mailsense/types` import and thro
 | `@mailsense/types` | `src/index.ts` | All public package contracts. |
 | `@mailsense/types/common` | `src/common/index.ts` | Shared pagination, API response, filter, and filter-control contracts. |
 | `@mailsense/types/accounts` | `src/accounts/index.ts` | Account/provider metadata, sync settings, account metrics, and sync jobs. |
+| `@mailsense/types/analytics` | `src/analytics/index.ts` | Overview KPIs, volume time series, top senders, response time metrics, and query contracts. |
 | `@mailsense/types/attachments` | `src/attachments/index.ts` | Staged attachment, upload/deletion response, and send-email request contracts. |
 | `@mailsense/types/emails` | `src/emails/index.ts` | Email entities, query/filter, compose, attachment metadata, thread, and folder movement contracts. |
 | `@mailsense/types/drafts` | `src/drafts/index.ts` | Draft entity, auto-save payload, send response, and list DTO contracts. |
@@ -39,8 +41,6 @@ Every module below is available from the root `@mailsense/types` import and thro
 | `@mailsense/types/providers` | `src/providers/index.ts` | Gmail and Outlook API models plus provider-neutral result types. |
 | `@mailsense/types/events` | `src/events/index.ts` | System event names and typed payload registry. |
 | `@mailsense/types/workers` | `src/workers/index.ts` | Background sync worker result contracts. |
-
-> Packaging note: `package.json` declares the `attachments` subpath, but `tsup.config.ts` does not yet include `src/attachments/index.ts` as an entry. Add it before publishing so `dist/attachments/*` is generated.
 
 ## Module Index
 
@@ -54,7 +54,12 @@ Every module below is available from the root `@mailsense/types` import and thro
 
 - `accounts.enums.ts`: Gmail/Outlook provider IDs; account-last-sync, sync-job, and sync-trigger statuses.
 - `accounts.constants.ts`: fifteen-minute default sync interval and supported provider display metadata.
-- `accounts.interfaces.ts`: base-entity account (including a provider-typed user profile), account metrics, queued sync-job, account-list response, and OAuth callback contracts.
+- `accounts.interfaces.ts`: base-entity account (including a provider-typed user profile), account metrics snapshot (with `unreadCount` and `sentCount`), queued sync-job, account-list response, and OAuth callback contracts.
+
+### Analytics (`src/analytics`)
+
+- `analytics.enums.ts`: `ANALYTICS_TIMEFRAME` (`today`, `7d`, `30d`, `90d`, `this_month`, `1y`, `all_time`, `custom`) and `METRIC_TREND_DIRECTION` (`UP`, `DOWN`, `NEUTRAL`).
+- `analytics.interfaces.ts`: `OverviewMetricsAttributes`, `AccountActivitySummaryAttributes`, `EmailVolumeDataPointAttributes`, `TopSenderDataAttributes`, `ResponseTimeDistributionAttributes`, `ResponseTimeMetricsAttributes`, `AnalyticsQueryParams`, and `DashboardAnalyticsResponse`.
 
 ### Attachments (`src/attachments`)
 
@@ -63,7 +68,7 @@ Every module below is available from the root `@mailsense/types` import and thro
 ### Emails (`src/emails`)
 
 - `emails.enums.ts`: `EMAIL_STATUS` (`received`, `draft`, `sent`), ascending and descending email-search sort order.
-- `emails.interfaces.ts`: base-entity full email (with `threadCount` and `attachments`) and list DTOs (with `attachmentCount` and thread metadata); thread retrieval (`GetThreadResponse`); attachment metadata (`EmailAttachment`); folder move payloads (`MoveEmailsRequestBody`, `MoveEmailsResponse`); fetch/search/filter parameters; compose and recipient-search payloads; list and filter responses.
+- `emails.interfaces.ts`: base-entity full email (with `threadCount` and `attachments`) and list DTOs (with `attachmentCount` and thread metadata); thread retrieval (`GetThreadResponse`); attachment metadata (`EmailAttachment`); folder move payloads (`MoveEmailsRequestBody`, `MoveEmailsResponse`); fetch/search/filter parameters; compose (`ComposeEmailRequestBody` with optional attachments, CC/BCC, and reply context) and recipient-search payloads; list and filter responses.
 
 ### Drafts (`src/drafts`)
 
@@ -104,5 +109,5 @@ Every module below is available from the root `@mailsense/types` import and thro
 
 ## Release Documentation
 
-- `CHANGELOG.md`: user-facing release history; version `1.3.1` documents the latest published contract updates.
+- `CHANGELOG.md`: user-facing release history; version `1.4.0` documents the latest published contract updates.
 - `CODEBASE_INDEX.md`: current source and public-surface reference. Update it whenever a public module, contract, export, or build/publishing behavior changes.
