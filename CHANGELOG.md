@@ -7,6 +7,16 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ## [Unreleased]
 
+## [1.4.0] - 2026-08-30
+
+### Added
+
+- Added `analytics` module with `ANALYTICS_TIMEFRAME` (including `today` and `all_time`) and `METRIC_TREND_DIRECTION` enums.
+- Added `OverviewMetricsAttributes`, `EmailVolumeDataPointAttributes`, `TopSenderDataAttributes`, `ResponseTimeDistributionAttributes`, `ResponseTimeMetricsAttributes`, and `AccountActivitySummaryAttributes` interfaces for dashboard reporting.
+- Added `DashboardAnalyticsResponse` and `AnalyticsQueryParams` API request/response contracts for `GET /api/analytics/dashboard`.
+- Added `unreadCount` and `sentCount` optional fields to `AccountMetricsAttributes`.
+- Added dedicated `@mailsense/types/analytics` package export.
+
 ## [1.3.2] - 2026-08-18
 
 ### Added
@@ -104,7 +114,8 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 - `DATE_RANGE` and `FILTER_OPTION_TYPE` enums for consistent filtering behavior across MailSense applications.
 - ESM, CommonJS, and TypeScript declaration build outputs, with public `@mailsense/types` and `@mailsense/types/common` entry points.
 
-[Unreleased]: https://github.com/vishal-jagamani/mailsense-types/compare/v1.3.1...HEAD
+[Unreleased]: https://github.com/vishal-jagamani/mailsense-types/compare/v1.4.0...HEAD
+[1.4.0]: https://github.com/vishal-jagamani/mailsense-types/compare/v1.3.1...v1.4.0
 [1.3.1]: https://github.com/vishal-jagamani/mailsense-types/compare/v1.3.0...v1.3.1
 [1.3.0]: https://github.com/vishal-jagamani/mailsense-types/compare/v1.2.0...v1.3.0
 [1.2.0]: https://github.com/vishal-jagamani/mailsense-types/compare/v1.1.4...v1.2.0
