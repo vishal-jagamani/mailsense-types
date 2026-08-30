@@ -17,6 +17,11 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 - Added `unreadCount` and `sentCount` optional fields to `AccountMetricsAttributes`.
 - Added dedicated `@mailsense/types/analytics` package export.
 
+## [1.3.2] - 2026-08-18
+
+### Added
+- Added `attachmentIds?: string[]` optional parameter to `ComposeEmailRequestBody` for dispatching composed emails with staged Cloudflare R2 attachments.
+
 ## [1.3.1] - 2026-08-10
 
 ### Changed
