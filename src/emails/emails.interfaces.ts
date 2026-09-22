@@ -74,11 +74,12 @@ export interface GetAllEmailsFilters {
 export interface ComposeEmailRequestBody {
     accountId: string;
     to: string[];
-    cc?: string[];
-    bcc?: string[];
     subject: string;
     body: string;
+    cc?: string[];
+    bcc?: string[];
     inReplyTo?: string;
+    threadId?: string;
     attachmentIds?: string[];
 }
 
@@ -117,13 +118,4 @@ export interface MoveEmailsRequestBody {
 export interface MoveEmailsResponse {
     success: boolean;
     updatedCount: number;
-}
-
-export interface EmailAttachment {
-    attachmentId: string;
-    filename: string;
-    mimeType: string;
-    size: number;
-    contentId?: string;
-    isInline: boolean;
 }

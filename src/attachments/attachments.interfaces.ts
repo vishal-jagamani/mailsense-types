@@ -28,14 +28,3 @@ export interface DeleteStagedAttachmentResponse {
     success: boolean;
     message: string;
 }
-
-export interface SendEmailRequestBody {
-    accountId: string;
-    to: string[];
-    cc?: string[];
-    bcc?: string[];
-    subject: string;
-    body: string;
-    inReplyTo?: string;
-    attachmentIds?: string[];
-}

@@ -7,6 +7,23 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ## [Unreleased]
 
+## [1.4.1] - 2026-09-21
+
+### Added
+
+- `SanitizedAccountAttributes` interface omitting sensitive encrypted OAuth tokens for safe client-facing delivery.
+- `AccountDetailsResponse` contract for account inspection endpoints.
+
+### Changed
+
+- Consolidated `SendEmailRequestBody` into an alias of `ComposeEmailRequestBody`.
+- Enhanced `ComposeEmailRequestBody` and `DraftAttributes` to strictly type `cc`, `bcc`, and `inReplyTo`.
+
+### Fixed
+
+- Removed duplicate `EmailAttachment` declaration in `emails.interfaces.ts` (BUG-01).
+- Fixed draft forward payload contract alignment (BUG-09).
+
 ## [1.4.0] - 2026-08-30
 
 ### Added
@@ -20,6 +37,7 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 ## [1.3.2] - 2026-08-18
 
 ### Added
+
 - Added `attachmentIds?: string[]` optional parameter to `ComposeEmailRequestBody` for dispatching composed emails with staged Cloudflare R2 attachments.
 
 ## [1.3.1] - 2026-08-10
