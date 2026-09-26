@@ -16,8 +16,18 @@ export interface EmailCreatedPayload {
     email: Partial<EmailAttributes>;
 }
 
+// Payload for EMAIL_BATCH_SYNCED system event — Phase 1 (ARCH-NEXT-02)
+export interface EmailBatchSyncedPayload {
+    accountId: string;
+    userId: string;
+    emailIds: string[];
+    batchSize: number;
+    timestamp: number;
+}
+
 // Registry interface mapping system events to their payload types
 export interface SystemEventPayloads {
     [SYSTEM_EVENT.SYNC_COMPLETED]: SyncCompletedPayload;
     [SYSTEM_EVENT.EMAIL_CREATED]: EmailCreatedPayload;
+    [SYSTEM_EVENT.EMAIL_BATCH_SYNCED]: EmailBatchSyncedPayload;
 }

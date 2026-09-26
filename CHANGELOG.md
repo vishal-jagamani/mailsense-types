@@ -7,6 +7,15 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ## [Unreleased]
 
+## [1.5.0] - 2026-09-26
+
+### Added
+
+- **Events:** Added `SYSTEM_EVENT.EMAIL_BATCH_SYNCED` enum member and `EmailBatchSyncedPayload` interface for post-sync AI event pipeline integration (`ARCH-NEXT-02`).
+- **Events:** Bound `[SYSTEM_EVENT.EMAIL_BATCH_SYNCED]` inside `SystemEventPayloads` registry contract.
+- **Common:** Added `KEYBOARD_SHORTCUT_ACTION` enum representing standardized email navigation and action commands (`UI-NEXT-02`).
+- **Common:** Added `KeyboardShortcutDefinition` and `KeyboardShortcutGroup` interfaces for type-safe keyboard shortcut binding and modal rendering.
+
 ## [1.4.1] - 2026-09-21
 
 ### Added
