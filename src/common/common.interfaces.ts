@@ -1,4 +1,4 @@
-import { DATE_RANGE, FILTER_OPTION_TYPE } from './common.enums.js';
+import { DATE_RANGE, FILTER_OPTION_TYPE, KEYBOARD_SHORTCUT_ACTION } from './common.enums.js';
 
 // Base entity interface for database models and domain entities
 export interface BaseEntity {
@@ -63,4 +63,21 @@ export interface FilterOption {
     label: string;
     type: FILTER_OPTION_TYPE;
     data: FilterOptionData[] | FilterOptionData;
+}
+
+// Metadata definition for a single keyboard shortcut — Phase 4 (UI-NEXT-02)
+export interface KeyboardShortcutDefinition {
+    id: KEYBOARD_SHORTCUT_ACTION;
+    key: string;
+    description: string;
+    category: 'navigation' | 'actions' | 'composer' | 'general';
+    shiftKey?: boolean;
+    ctrlKey?: boolean;
+    metaKey?: boolean;
+}
+
+// Grouped category container for shortcuts display modal — Phase 4 (UI-NEXT-02)
+export interface KeyboardShortcutGroup {
+    title: string;
+    shortcuts: KeyboardShortcutDefinition[];
 }
