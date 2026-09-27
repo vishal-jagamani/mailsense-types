@@ -81,3 +81,9 @@ export interface KeyboardShortcutGroup {
     title: string;
     shortcuts: KeyboardShortcutDefinition[];
 }
+
+export interface ConfigurationErrorContext {
+    variableName: string;
+    component: string;
+    expectedFormat?: string;
+}
