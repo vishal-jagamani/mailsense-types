@@ -7,6 +7,21 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ## [Unreleased]
 
+## [1.6.0] - 2026-09-27
+
+### Added
+
+- `EmailMoveParams`, `EmailStarParams`, `EmailUnreadParams`, `EmailDeleteParams`, `EmailArchiveParams` action interfaces in `src/emails/emails.interfaces.ts` eliminating inline object types.
+- `PerAccountActionContext` in `src/emails/emails.interfaces.ts` for batch multi-account processing.
+- `UpdateAccountSettingsRequest` in `src/accounts/accounts.interfaces.ts` for account settings mutations.
+- `ConfigurationErrorContext` in `src/common/common.interfaces.ts` for typed infrastructure configuration error reporting.
+
+### Changed
+
+- `EmailAttributes.to`, `cc`, and `bcc` normalized strictly to `string[]` (previously `string[] | string`), eliminating ambiguous union branches.
+- `EmailListDTO.to`, `cc`, and `bcc` normalized strictly to `string[]`.
+- `GetAccountsResponse.data` updated to return `SanitizedAccountAttributes[]` instead of `AccountAttributes[]` to prevent leaking encrypted token metadata.
+
 ## [1.5.0] - 2026-09-26
 
 ### Added

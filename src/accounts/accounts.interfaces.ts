@@ -61,7 +61,16 @@ export interface SyncJobAttributes extends BaseEntity {
 
 // API response wrapper for accounts list
 export interface GetAccountsResponse {
-    data: AccountAttributes[];
+    data: SanitizedAccountAttributes[];
+}
+
+export interface AccountDetailsResponse {
+    account: SanitizedAccountAttributes;
+}
+
+export interface UpdateAccountSettingsRequest {
+    syncEnabled?: boolean;
+    syncInterval?: number;
 }
 
 // OAuth authorization callback query parameters
@@ -81,8 +90,4 @@ export interface SanitizedAccountAttributes extends BaseEntity {
     syncFrequency?: string;
     syncHistory?: SyncJobAttributes[];
     metrics?: AccountMetricsAttributes;
-}
-
-export interface AccountDetailsResponse {
-    account: SanitizedAccountAttributes;
 }

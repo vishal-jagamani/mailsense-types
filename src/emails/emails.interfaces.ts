@@ -7,9 +7,9 @@ export interface EmailAttributes extends BaseEntity {
     threadId: string;
     threadCount?: number;
     from: string;
-    to: string[] | string;
-    cc: string[] | string;
-    bcc: string[] | string;
+    to: string[];
+    cc: string[];
+    bcc: string[];
     subject: string;
     body: string;
     bodyHtml: string;
@@ -31,18 +31,53 @@ export interface EmailAttachment {
 
 // Lightweight Email summary DTO for list views
 export interface EmailListDTO extends BaseEntity {
-    subject?: string | undefined;
-    from?: string | undefined;
-    receivedAt?: Date | undefined;
-    isRead?: boolean | undefined;
-    providerMessageId?: string | undefined;
-    accountId?: string | undefined;
-    threadId?: string | undefined;
-    threadCount?: number | undefined;
-    attachmentCount?: number | undefined;
-    body?: string | undefined;
-    bodyHtml?: string | undefined;
-    bodyPlain?: string | undefined;
+    subject?: string;
+    from?: string;
+    receivedAt?: Date;
+    isRead?: boolean;
+    providerMessageId?: string;
+    accountId?: string;
+    threadId?: string;
+    threadCount?: number;
+    attachmentCount?: number;
+    body?: string;
+    bodyHtml?: string;
+    bodyPlain?: string;
+    to?: string[];
+    cc?: string[];
+    bcc?: string[];
+    hasAttachments?: boolean;
+}
+
+export interface EmailMoveParams {
+    emailIds: string[];
+    targetFolderId: string;
+    accountId?: string;
+}
+
+export interface EmailStarParams {
+    emailIds: string[];
+    star: boolean;
+}
+
+export interface EmailUnreadParams {
+    emailIds: string[];
+    unread: boolean;
+}
+
+export interface EmailDeleteParams {
+    emailIds: string[];
+}
+
+export interface EmailArchiveParams {
+    emailIds: string[];
+}
+
+// Phase 4 (REFACTOR-BE-02: Structured context for per-account batch actions)
+export interface PerAccountActionContext {
+    accountId: string;
+    emailIds: string[];
+    providerMessageIds: string[];
 }
 
 // Options for fetching paginated emails on frontend
