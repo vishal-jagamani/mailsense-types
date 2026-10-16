@@ -154,3 +154,16 @@ export interface MoveEmailsResponse {
     success: boolean;
     updatedCount: number;
 }
+
+export interface BatchEmailActionRequest {
+    emailIds: string[];
+}
+
+export interface EmailEndpointParams {
+    emailId: string;
+}
+
+export interface EmailAttachmentEndpointParams {
+    emailId: string;
+    attachmentId: string;
+}

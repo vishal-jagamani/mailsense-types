@@ -7,6 +7,14 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ## [Unreleased]
 
+## [1.6.1] - 2026-10-16
+
+### Added
+
+- Added `BatchEmailActionRequest`, `EmailEndpointParams`, and `EmailAttachmentEndpointParams` in `emails.interfaces.ts` for standardized route parameters.
+- Added `FolderSyncRequestParams`, `CreateFolderPayload`, and `FolderEndpointParams` in `folders.interfaces.ts` for multi-tenant folder operations.
+- Enforced strict zero-inline-types compliance across all exported API contracts.
+
 ## [1.6.0] - 2026-09-27
 
 ### Added

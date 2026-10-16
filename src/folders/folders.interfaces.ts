@@ -51,3 +51,11 @@ export interface CreateFolderBodyParams {
     accountId: string;
     folderName: string;
 }
+
+export interface FolderSyncRequestParams {
+    accountId: string;
+}
+
+export interface FolderEndpointParams {
+    folderId: string;
+}
