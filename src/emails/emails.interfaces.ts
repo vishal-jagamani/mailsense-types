@@ -126,8 +126,8 @@ export interface SearchOtherContactsResponse {
 
 // Filter dropdown metadata options for email lists
 export interface GetFiltersResponse {
-    accounts: { id: string; provider: string; emailAddress: string }[];
-    folders: { id: string; name: string; providerFolderId: string }[];
+    accounts: FilterAccountOption[];
+    folders: FilterFolderOption[];
 }
 
 // Response envelope for email listing endpoints
@@ -166,4 +166,16 @@ export interface EmailEndpointParams {
 export interface EmailAttachmentEndpointParams {
     emailId: string;
     attachmentId: string;
+}
+
+export interface FilterAccountOption {
+    id: string;
+    provider: string;
+    emailAddress: string;
+}
+
+export interface FilterFolderOption {
+    id: string;
+    name: string;
+    providerFolderId: string;
 }

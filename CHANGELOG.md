@@ -7,6 +7,22 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ## [Unreleased]
 
+## [1.7.0] - 2026-11-13
+
+### Added
+
+- Domain enum `ATTACHMENT_STATUS` in `src/attachments/attachments.enums.ts`.
+- Interface `StagedAttachmentSummaryDTO` in `src/attachments/attachments.interfaces.ts`.
+- Interface `UploadStagedAttachmentPayload` in `src/attachments/attachments.interfaces.ts`.
+- Interfaces `UpdateDraftPayload` and `DraftEndpointParams` in `src/drafts/drafts.interfaces.ts`.
+- Interfaces `FilterAccountOption` and `FilterFolderOption` in `src/emails/emails.interfaces.ts`.
+
+### Changed
+
+- `UploadAttachmentResponse`: Replaced inline object definition with named `StagedAttachmentSummaryDTO`.
+- `GetFiltersResponse`: Replaced inline object arrays with `FilterAccountOption[]` and `FilterFolderOption[]`.
+- `StagedAttachmentAttributes`: Updated `status` field to use `ATTACHMENT_STATUS` enum instead of string union.
+
 ## [1.6.1] - 2026-10-16
 
 ### Added
