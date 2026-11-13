@@ -1,0 +1,5 @@
+export enum ATTACHMENT_STATUS {
+    STAGED = 'STAGED',
+    ATTACHED = 'ATTACHED',
+    EXPIRED = 'EXPIRED',
+}

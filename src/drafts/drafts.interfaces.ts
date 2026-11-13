@@ -38,6 +38,23 @@ export interface SendDraftResponse {
     providerMessageId: string;
 }
 
+// Strongly typed payload for updating an existing user draft with multi-tenant isolation.
+export interface UpdateDraftPayload {
+    draftId: string;
+    userId: string;
+    accountId: string;
+    to: string[];
+    cc?: string[];
+    bcc?: string[];
+    subject: string;
+    body: string;
+    inReplyTo?: string;
+}
+
+export interface DraftEndpointParams {
+    draftId: string;
+}
+
 // DTO Interfaces
 // Summary DTO for draft list view
 export interface DraftListDTO extends BaseEntity {
