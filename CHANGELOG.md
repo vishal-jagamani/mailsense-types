@@ -7,6 +7,12 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ## [Unreleased]
 
+## [1.7.1] - 2026-11-17
+
+### Changed
+
+- `SanitizedAccountAttributes` in `src/accounts/accounts.interfaces.ts`: Normalized property names to align with `AccountAttributes` (`email` -> `emailAddress`, `isEnabled` -> `active`, `lastSyncedAt?: Date` -> `lastSyncedAt?: number`, `syncFrequency?: string` -> `syncInterval?: number`), and removed unused/unpopulated fields (`name`, `syncHistory`, `metrics`).
+
 ## [1.7.0] - 2026-11-13
 
 ### Added
