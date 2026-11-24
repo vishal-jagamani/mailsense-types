@@ -81,13 +81,10 @@ export interface OAuthCallbackParams {
 
 export interface SanitizedAccountAttributes extends BaseEntity {
     userId: string;
-    email: string;
-    name?: string;
+    emailAddress: string;
     provider: ACCOUNT_PROVIDER;
-    isEnabled: boolean;
-    lastSyncedAt?: Date;
+    active: boolean;
+    lastSyncedAt?: number;
     lastSyncStatus?: ACCOUNT_LAST_SYNC_STATUS;
-    syncFrequency?: string;
-    syncHistory?: SyncJobAttributes[];
-    metrics?: AccountMetricsAttributes;
+    syncInterval?: number;
 }
