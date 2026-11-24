@@ -8,14 +8,44 @@ export interface UserAccountSyncSettings {
     defaultSyncInterval: number;
 }
 
+// Granular sub-feature toggles
+export interface UserAIFeatureSettings {
+    categorization: boolean;
+    priorityScoring: boolean;
+    summarization: boolean;
+    suggestedReplies: boolean;
+}
+
+// Global and granular user AI preferences
+export interface UserAISettings {
+    enabled: boolean;
+    features: UserAIFeatureSettings;
+    disabledAccountIds: string[];
+    consentGivenAt?: Date;
+}
+
 export interface UserAccountSettings {
     syncSettings: UserAccountSyncSettings;
     // Future additions: defaultAccountId?, signature?, etc.
 }
 
+// Request payload for updating AI user preferences
+export interface UpdateUserAISettingsPayload {
+    enabled?: boolean;
+    features?: Partial<UserAIFeatureSettings>;
+    disabledAccountIds?: string[];
+}
+
+// Response envelope for user AI settings retrieval
+export interface GetUserAISettingsResponse {
+    settings: UserAISettings;
+    globalFeatureFlag: boolean;
+}
+
 export interface UserSettings extends BaseEntity {
     userId: string;
     account: UserAccountSettings;
+    ai?: UserAISettings;
 }
 
 // User entity representation

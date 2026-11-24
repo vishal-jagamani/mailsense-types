@@ -1,3 +1,4 @@
+import { EMAIL_AI_CATEGORY, EMAIL_AI_PRIORITY } from '../emails/emails.enums.js';
 import { DATE_RANGE, FILTER_OPTION_TYPE, KEYBOARD_SHORTCUT_ACTION } from './common.enums.js';
 
 // Base entity interface for database models and domain entities
@@ -45,6 +46,8 @@ export interface Filter {
     dateRange?: DATE_RANGE | undefined;
     folders?: string[] | undefined;
     unread?: boolean | undefined;
+    aiCategory?: EMAIL_AI_CATEGORY | undefined;
+    aiPriority?: EMAIL_AI_PRIORITY | undefined;
 }
 
 // Metadata definition for individual filter option choices
