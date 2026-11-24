@@ -1,4 +1,6 @@
+import { AI_PROVIDER_NAME } from '../ai/ai.enums.js';
 import { BaseEntity, DATE_RANGE, Filter } from '../common/index.js';
+import { EMAIL_AI_CATEGORY, EMAIL_AI_PRIORITY, SUGGESTED_REPLY_TONE } from './emails.enums.js';
 
 // DB entities
 export interface EmailAttributes extends BaseEntity {
@@ -18,6 +20,12 @@ export interface EmailAttributes extends BaseEntity {
     isRead: boolean;
     folders: string[];
     attachments?: EmailAttachment[];
+    aiCategory?: EMAIL_AI_CATEGORY;
+    aiPriority?: EMAIL_AI_PRIORITY;
+    aiSummary?: string;
+    aiTags?: string[];
+    aiProcessedAt?: Date;
+    aiProvider?: AI_PROVIDER_NAME;
 }
 
 export interface EmailAttachment {
@@ -27,6 +35,17 @@ export interface EmailAttachment {
     size: number;
     contentId?: string;
     isInline: boolean;
+}
+
+// Structured AI analysis metadata for email documents
+export interface EmailAiMetadata {
+    category: EMAIL_AI_CATEGORY;
+    priority: EMAIL_AI_PRIORITY;
+    summary: string;
+    tags: string[];
+    confidence: number;
+    processedAt: Date;
+    provider: AI_PROVIDER_NAME;
 }
 
 // Lightweight Email summary DTO for list views
@@ -47,6 +66,9 @@ export interface EmailListDTO extends BaseEntity {
     cc?: string[];
     bcc?: string[];
     hasAttachments?: boolean;
+    aiCategory?: EMAIL_AI_CATEGORY;
+    aiPriority?: EMAIL_AI_PRIORITY;
+    aiSummary?: string;
 }
 
 export interface EmailMoveParams {
@@ -103,6 +125,8 @@ export interface GetAllEmailsFilters {
     dateRange?: DATE_RANGE | undefined;
     folders?: string[] | undefined;
     unread?: boolean | undefined;
+    aiCategory?: EMAIL_AI_CATEGORY | undefined;
+    aiPriority?: EMAIL_AI_PRIORITY | undefined;
 }
 
 // Request payload for composing and sending an email
@@ -178,4 +202,28 @@ export interface FilterFolderOption {
     id: string;
     name: string;
     providerFolderId: string;
+}
+
+// Response payload for on-demand email/thread summarization
+export interface GetEmailSummaryResponse {
+    emailId: string;
+    summary: string;
+    keyPoints: string[];
+    actionItems: string[];
+    generatedAt: number;
+}
+
+// Individual suggested reply option
+export interface SuggestedReplyItem {
+    id: string;
+    title: string;
+    body: string;
+    tone: SUGGESTED_REPLY_TONE;
+}
+
+// Response payload for contextual quick replies
+export interface GetSuggestedRepliesResponse {
+    emailId: string;
+    suggestions: SuggestedReplyItem[];
+    generatedAt: number;
 }

@@ -1,6 +1,6 @@
 {
     "name": "@mailsense/types",
-    "version": "1.7.1",
+    "version": "1.8.0",
     "description": "Official TypeScript constants, enums, interfaces, and DTO definitions for MailSense services",
     "type": "module",
     "private": false,
@@ -73,6 +73,11 @@
             "types": "./dist/drafts/index.d.ts",
             "import": "./dist/drafts/index.js",
             "require": "./dist/drafts/index.cjs"
+        },
+        "./ai": {
+            "types": "./dist/ai/index.d.ts",
+            "import": "./dist/ai/index.js",
+            "require": "./dist/ai/index.cjs"
         }
     },
     "scripts": {

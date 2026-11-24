@@ -7,6 +7,29 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ## [Unreleased]
 
+## [1.8.0] - 2026-11-24
+
+### Added
+
+- `EMAIL_AI_CATEGORY` enum defining smart categorization classifications (`work`, `personal`, `finance`, `social`, `promotions`, `updates`, `general`).
+- `EMAIL_AI_PRIORITY` enum defining inbox triage priority levels (`critical`, `high`, `normal`, `low`).
+- `SUGGESTED_REPLY_TONE` enum defining tone variants for suggested replies (`formal`, `casual`, `concise`).
+- `AI_PROVIDER_NAME` enum defining pluggable AI strategies (`gemini`, `openai`, `anthropic`, `noop`).
+- `AI_FEATURE_KEY` enum defining granular sub-feature toggles (`categorization`, `priorityScoring`, `summarization`, `suggestedReplies`).
+- `AI_PROCESSING_STATUS` enum defining discriminated background job outcomes (`success`, `skipped`, `failed`, `rateLimited`).
+- Provider strategy contracts under `src/ai/`: `AiClassifyEmailParams`, `AiClassifyEmailResult`, `AiThreadMessageInput`, `AiSummarizeThreadParams`, `AiSummarizeThreadResult`, `AiSuggestedRepliesParams`, and `AiSuggestedRepliesResult`.
+- `EmailAiMetadata` interface containing unified classification, priority, summary, tags, and confidence metrics.
+- `GetEmailSummaryResponse` and `SuggestedReplyItem` / `GetSuggestedRepliesResponse` interfaces for on-demand AI endpoints.
+- `UserAIFeatureSettings`, `UserAISettings`, `UpdateUserAISettingsPayload`, and `GetUserAISettingsResponse` for AI settings and privacy management.
+- `AIProcessingJobPayload` and `AIProcessingJobResult` contracts for BullMQ queue workers.
+
+### Changed
+
+- Extended `EmailAttributes` with optional `aiCategory`, `aiPriority`, `aiSummary`, `aiTags`, `aiProcessedAt`, and `aiProvider`.
+- Additively extended `EmailListDTO` with `aiCategory`, `aiPriority`, and `aiSummary` for list view rendering while preserving all existing fields.
+- Extended `Filter` and `GetAllEmailsFilters` with `aiCategory` and `aiPriority` filter fields.
+- Extended `UserSettings` entity with `ai: UserAISettings` configuration.
+
 ## [1.7.1] - 2026-11-17
 
 ### Changed
@@ -186,8 +209,16 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 - `DATE_RANGE` and `FILTER_OPTION_TYPE` enums for consistent filtering behavior across MailSense applications.
 - ESM, CommonJS, and TypeScript declaration build outputs, with public `@mailsense/types` and `@mailsense/types/common` entry points.
 
-[Unreleased]: https://github.com/vishal-jagamani/mailsense-types/compare/v1.4.0...HEAD
-[1.4.0]: https://github.com/vishal-jagamani/mailsense-types/compare/v1.3.1...v1.4.0
+[Unreleased]: https://github.com/vishal-jagamani/mailsense-types/compare/v1.8.0...HEAD
+[1.8.0]: https://github.com/vishal-jagamani/mailsense-types/compare/v1.7.1...v1.8.0
+[1.7.1]: https://github.com/vishal-jagamani/mailsense-types/compare/v1.7.0...v1.7.1
+[1.7.0]: https://github.com/vishal-jagamani/mailsense-types/compare/v1.6.1...v1.7.0
+[1.6.1]: https://github.com/vishal-jagamani/mailsense-types/compare/v1.6.0...v1.6.1
+[1.6.0]: https://github.com/vishal-jagamani/mailsense-types/compare/v1.5.0...v1.6.0
+[1.5.0]: https://github.com/vishal-jagamani/mailsense-types/compare/v1.4.1...v1.5.0
+[1.4.1]: https://github.com/vishal-jagamani/mailsense-types/compare/v1.4.0...v1.4.1
+[1.4.0]: https://github.com/vishal-jagamani/mailsense-types/compare/v1.3.2...v1.4.0
+[1.3.2]: https://github.com/vishal-jagamani/mailsense-types/compare/v1.3.1...v1.3.2
 [1.3.1]: https://github.com/vishal-jagamani/mailsense-types/compare/v1.3.0...v1.3.1
 [1.3.0]: https://github.com/vishal-jagamani/mailsense-types/compare/v1.2.0...v1.3.0
 [1.2.0]: https://github.com/vishal-jagamani/mailsense-types/compare/v1.1.4...v1.2.0

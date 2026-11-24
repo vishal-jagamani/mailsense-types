@@ -14,6 +14,7 @@ export default defineConfig({
         'src/drafts/index.ts',
         'src/attachments/index.ts',
         'src/analytics/index.ts',
+        'src/ai/index.ts',
     ],
     format: ['cjs', 'esm'],
     dts: true,
